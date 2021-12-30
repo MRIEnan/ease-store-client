@@ -14,7 +14,7 @@ const ProductDetail = () => {
     console.log(productId);
 
     const fetchProductDetail = async() => {
-        const response = await axios.get(`http://localhost:5000/product/${productId}`).catch(err => {
+        const response = await axios.get(`https://stormy-wildwood-71452.herokuapp.com/${productId}`).catch(err => {
             console.log('Err',err)
         })
 

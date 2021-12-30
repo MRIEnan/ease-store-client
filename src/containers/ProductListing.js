@@ -11,7 +11,7 @@ const ProductListing = () => {
     const dispatch = useDispatch();
 
     const fetchProducts = async() => {
-        const response = await axios.get('http://localhost:5000/products').catch((err) => {
+        const response = await axios.get('https://stormy-wildwood-71452.herokuapp.com/products').catch((err) => {
             console.log("Err",err)
         })
         dispatch(setProducts(response.data))
