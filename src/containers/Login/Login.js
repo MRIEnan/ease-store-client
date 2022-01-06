@@ -22,7 +22,7 @@ const Login = () => {
     }
     
     if(user.email){
-        navigate('/')
+        navigate('/home')
     }
     return(
         <>

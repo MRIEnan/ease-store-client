@@ -1,0 +1,153 @@
+// import React, {useState, useRef, useEffect} from 'react';
+
+// const DashBoardProfile = () => {
+//     /* const lastDate = 'Jan 01 2022, 11:00:23 PM'
+//     const [day,setDay]=useState('00')
+//     const [hour,setHour]=useState('00')
+//     const [minute,setMinute]=useState('00')
+//     const [second,setSecond]=useState('00')
+//     const [timeDistance,setTimeDistance]=useState(1); */
+//     // console.log(new Date(lastDate).getTime())
+//     // const [currentDate,setCurrentDate] = useState(new Date())
+//     /* const getAns = () => {
+//         const adistance = (new Date(lastDate).getTime()-new Date().getTime())
+//         const aday = Math.floor(adistance/(1000*60*60*24))
+//         const ahour = Math.floor((adistance%(1000*60*60))/(1000*60*60))
+//         const aminute = Math.floor((adistance%(1000*60*60))/(1000*60))
+//         const asecond = Math.floor((adistance%(1000*60))/(1000))
+//         // const minute = Math.floor(distance/(1000*60*60*24))
+//         // const second = Math.floor(distance/(1000*60*60*24))
+//         setTimeDistance(adistance);
+//         setDay(aday);
+//         setHour(ahour);
+//         setMinute(aminute);
+//         setSecond(asecond);
+//         console.log(timeDistance,`${day} day, ${hour}, hour, ${minute}, minute, ${second},second`)
+//         if(timeDistance<0){
+//             console.log('finishing')
+//             clearInterval(myInterval);
+//         }
+//     } */
+
+//     /* const myInterval = setInterval(()=>{
+//         const adistance = (new Date(lastDate).getTime()-new Date().getTime())
+//         const aday = Math.floor(adistance/(1000*60*60*24))
+//         const ahour = Math.floor((adistance%(1000*60*60))/(1000*60*60))
+//         const aminute = Math.floor((adistance%(1000*60*60))/(1000*60))
+//         const asecond = Math.floor((adistance%(1000*60))/(1000))
+//         // const minute = Math.floor(distance/(1000*60*60*24))
+//         // const second = Math.floor(distance/(1000*60*60*24))
+        
+//         if(timeDistance<0){
+//             console.log('finishing')
+//             clearInterval(myInterval);
+//         }
+//         else{
+//             setTimeDistance(adistance);
+//             setDay(aday);
+//             setHour(ahour);
+//             setMinute(aminute);
+//             setSecond(asecond);
+//         }
+//         console.log(timeDistance,`${day} day, ${hour}, hour, ${minute}, minute, ${second},second`)
+//     },1000); */
+
+//     // const myStop = () =>{
+//     //     if(timeDistance<0){
+//     //         clearInterval(myInterval);
+//     //         return;
+//     //     }else{
+//     //         console.log('in else');
+//     //         getAns();
+//     //         myStop()
+//     //     }
+//     // }
+//     // myStop();
+//     /* useEffect(()=>{
+//         const interval = setInterval(() => {
+//             console.log(lw)
+//             lw++
+//             if(lw>6){
+//                 console.log('k')
+//                 clearInterval(interval.current);
+//             }
+//         }, 1000);
+//     }); */
+//     /* const handleClick=()=>{
+//         getAns();
+//     } */
+    
+//     /* return (
+//         <div>
+//             <h2>dashboard profile</h2>
+//             <button onClick={handleClick}>Get Time</button>
+//             <p>{`23 days - 21 hours - 12 minutes - ${second} seconds`}</p>
+//         </div>
+//     );
+// };
+
+// export default DashBoardProfile; */
+//     const [isOpen,setIsOpen]=useState(true);
+//     const [timerDays, setTimerDays]=useState('00');
+//     const [timerHours,setTimerHours]=useState('00');
+//     const [timerMinutes,setTimerMinutes]=useState('00');
+//     const [timerSeconds,setTimerSeconds]=useState('00');
+
+//     let interval = useRef();
+
+//     const startTimer = () => {
+//         const countdownDate = new Date('Jan 4, 2021 05:27:00 AM').getTime();
+//         console.log('countdownDate');
+//         console.log(countdownDate);
+
+//         interval.current= setInterval(()=>{
+//             const now = new Date().getTime();
+//             const distance = countdownDate - now;
+//             console.log('d',distance);
+            
+//             // console.log(distance);
+
+//             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//             const hours = Math.floor((distance % (1000 * 60 * 60 * 24) / ( 1000 * 60 * 60)));
+//             const minutes = Math.floor((distance % (1000 * 60)) / (1000 * 60));
+//             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+//             console.log(distance)
+//             console.log(seconds)
+
+//             if( distance > 0){
+//                 // stop timer
+//                 console.log('clear')
+//                 setIsOpen(false)
+//                 clearInterval(interval.current)
+//                 console.log(isOpen)
+//                 return;
+//             }else{
+//                 // update timer
+//                 console.log('updating');
+//                 setTimerDays(days)
+//                 setTimerHours(hours)
+//                 setTimerMinutes(minutes)
+//                 setTimerSeconds(seconds)
+//                 console.log(days,hours,minutes,seconds);
+//             }
+//         }, 1000);
+//     };
+
+//     // startTimer();
+//     useEffect(()=>{
+//         console.log('in useEffect');;
+//         startTimer();
+//     })
+//     // startTimer(); 
+    
+//     return (
+//         <div>
+//             <h2>dashboard profile</h2>
+//             <div>
+//                 <p>{timerSeconds}</p>
+//             </div>
+//             <p>{`${timerDays} days - ${timerHours} hours - ${timerMinutes} minutes - ${timerSeconds} seconds`}</p>
+//         </div>
+//     );
+// }
+// export default DashBoardProfile;

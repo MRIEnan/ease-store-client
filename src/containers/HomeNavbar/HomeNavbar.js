@@ -95,7 +95,7 @@ const HomeNavbar = () => {
                         <NavHashLink onClick={handleNavClick} to="/home">Home</NavHashLink>
                     </li>
                     {user.email && <li>
-                        <NavHashLink onClick={handleNavClick} to="/dashboard">Dashboard</NavHashLink>
+                        <NavHashLink onClick={handleNavClick} to="/dashboard/profile">Dashboard</NavHashLink>
                     </li>}
                     {user.email && <li>
                         <NavHashLink onClick={handleNavClick} to="/products">AllProducts</NavHashLink>    

@@ -1,0 +1,9 @@
+.my-order-info-card{
+    display: grid;
+    grid-template-columns: 30% 15% 30% 25% ;
+    place-items: center;
+    background-color: #ff7f47;
+    margin: 10px;
+    border-radius: 6px;
+    color: #ffffff;
+}

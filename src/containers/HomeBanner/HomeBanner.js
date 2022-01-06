@@ -1,11 +1,11 @@
 import React from 'react';
 import './HomeBanner.css';
 
-const HomeBanner = () => {
+const HomeBanner = ({label}) => {
     return(
-        <div className='home-banner-main-container'>
+        <div className='home-banner-main-container' data-testid="home-banner">
             <div className='home-banner-text-container'>
-                <h1 className='home-banner-title'>EASE SYSTEM</h1>
+                <h1 className='home-banner-title'>{label}</h1>
             </div>
         </div>
     )

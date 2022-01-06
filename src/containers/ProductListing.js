@@ -23,10 +23,9 @@ const ProductListing = () => {
 
     console.log("products",products);
     return (
-        // <div className='ui grid container'>
         <div className=''>
             <HomeNavbar/>
-            <HomeBanner/>
+            <HomeBanner label="EASE SYSTEM"/>
             <ProductComponent></ProductComponent>
         </div>
     );

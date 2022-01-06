@@ -5,16 +5,28 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectedProduct, removeSelectedProduct } from '../redux/actions/productActions';
 import HomeNavbar from './HomeNavbar/HomeNavbar';
+import useAuth from '../hooks/useAuth';
+import { NavHashLink } from 'react-router-hash-link';
 
 const ProductDetail = () => {
+    const {isLoading, setIsLoading} = useAuth();
     const product = useSelector((state) => state.product)
     const { image, title, price, category, description} = product;
     const {productId} = useParams();
     const dispatch = useDispatch()
     console.log(productId);
-
+/* 
     const fetchProductDetail = async() => {
-        const response = await axios.get(`https://stormy-wildwood-71452.herokuapp.com/${productId}`).catch(err => {
+        setIsLoading(false)
+        const response = await axios.get(`http://localhost:5000/product/${productId}`).catch(err => {
+            console.log('Err',err)
+        })
+
+        dispatch(selectedProduct(response.data));
+    } */
+    const fetchProductDetail = async() => {
+        setIsLoading(false)
+        const response = await axios.get(`https://stormy-wildwood-71452.herokuapp.com/product/${productId}`).catch(err => {
             console.log('Err',err)
         })
 
@@ -27,14 +39,17 @@ const ProductDetail = () => {
         return() =>{
             dispatch(removeSelectedProduct())
         }
-    },[productId]);
+    },[isLoading,productId]);
+    if(!productId){
+        setIsLoading(true)
+        return(
+            <div>wait for a while</div>
+        )
+    }
 
     return (
         <div className=''>
-            {Object.keys(product).length === 0 ? (
-                <div>...Loading</div>
-            ) : (
-                <>
+            <>
                 <HomeNavbar/>
                 <div className="product-detail-main-container">
                     <div className="product-detail-content-container">
@@ -47,13 +62,12 @@ const ProductDetail = () => {
                             <h3 className="product-detail-category">{category}</h3>
                             <p className="product-detail-description">{description}</p>
                             <div className="" tabIndex="0">
-                                <button className='btn-special'>Add to Cart</button>
+                                <NavHashLink to={`/orderForm/${productId}`} ><button className='btn-special'>Add to Cart</button></NavHashLink>
                             </div>
                         </div>
                     </div>
                 </div>
-                </>
-            )}
+            </>
         </div>
     );
 };

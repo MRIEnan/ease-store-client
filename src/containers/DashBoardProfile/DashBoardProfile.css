@@ -1,0 +1,9 @@
+.dashboard-profile-user-name{
+    margin: 10px;
+    text-transform: capitalize;
+    text-align: center;
+}
+.dashboard-profile-user-email{
+    margin: 10px;
+    text-align: center;
+}

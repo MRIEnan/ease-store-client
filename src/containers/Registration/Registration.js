@@ -21,7 +21,7 @@ const Registration = () => {
             console.log("password doesn't match")
         }
         else{
-            /* fetch('http://localhost:5000/users',{
+            /* fetch('https://stormy-wildwood-71452.herokuapp.com/users',{
                 method: 'POST',
                 headers:{
                 'content-type':'application/json'
