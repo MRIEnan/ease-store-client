@@ -4,12 +4,18 @@ import { NavHashLink } from 'react-router-hash-link';
 import useAuth from '../../hooks/useAuth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const HomeNavbar = () => {
     const { user, logOut } = useAuth();
+    const navigate =useNavigate();
     const [menuDist,setMenuDist] = useState(0);
     const [width,setWidth] = useState(window.innerWidth);
     const [isOpen,setIsOpen] = useState(true);
+    const handleLogOut=()=>{
+        logOut();
+        navigate('/');
+    }
 
     const functionResize= () =>{
         let windowWidth = window.innerWidth;
@@ -104,7 +110,7 @@ const HomeNavbar = () => {
                         <NavHashLink onClick={handleNavClick} to="/login">Login</NavHashLink>
                     </li>:
                     <li>
-                        <button onClick={logOut}>Log Out</button>
+                        <button onClick={handleLogOut}>Log Out</button>
                     </li>}
                 </ul>
             </div>
